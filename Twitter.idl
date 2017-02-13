@@ -1,0 +1,17 @@
+/*
+ *Local win32 Twitter idl
+ *Author: Loay ASHMAWY
+ *Company: Celad
+*/
+
+module Twitter {
+
+#pragma DCPS_DATA_TYPE "Twitter::Tweet"
+#pragma DCPS_DATA_KEY "Twitter::Tweet owner"
+
+	struct Tweet {
+		string owner;
+		string text;
+		long count;
+	};
+};
