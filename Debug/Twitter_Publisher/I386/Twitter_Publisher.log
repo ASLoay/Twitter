@@ -1,3 +1,9 @@
-﻿  publisher.cpp
+﻿  TwitterC.cpp
+  TwitterS.cpp
+  TwitterTypeSupportC.cpp
+  TwitterTypeSupportImpl.cpp
+  TwitterTypeSupportS.cpp
+  publisher.cpp
+  Generating Code...
   Twitter_Publisher.vcxproj -> C:\Users\lashmawy\Documents\twitter\.\publisher.exe
   Twitter_Publisher.vcxproj -> .\\publisher_exe.pdb (Full PDB)

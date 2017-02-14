@@ -8,7 +8,7 @@
 #include "tweetDataReaderListnerImpl.h"
 #include "TwitterTypeSupportImpl.h"
 #include "TwitterTypeSupportC.h"
-
+using namespace std;
 tweetDataReaderListnerImpl::tweetDataReaderListnerImpl() {}
 
 tweetDataReaderListnerImpl::~tweetDataReaderListnerImpl() {}

@@ -29,8 +29,8 @@
 // TAO_IDL - Generated from
 // c:\users\lashmawy\documents\soft\opendds\ace_wrappers\tao\tao_idl\be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_TWITTERTYPESUPPORTS_VUZCVI_CPP_
-#define _TAO_IDL_TWITTERTYPESUPPORTS_VUZCVI_CPP_
+#ifndef _TAO_IDL_TWITTERTYPESUPPORTS_Z20K0I_CPP_
+#define _TAO_IDL_TWITTERTYPESUPPORTS_Z20K0I_CPP_
 
 
 #include "TwitterTypeSupportS.h"

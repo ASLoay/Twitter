@@ -15,10 +15,10 @@ DDS::DomainId_t TWITTER_DOMAIN_ID = 1500;
 using namespace std;
 
 int main (int argc, char *argv[]){
-	cout << "Initializing Twitter..." << endl;
+	cout << "Initializing Twitter for the publisher..." << endl;
 	string user;
 	if (argc < 3) {
-		cerr << "ERROR: Publisher: main(): Usage Error, correct use -> publisher.exe -DCPSConfigFile rtps.ini" << endl;
+		cerr << "ERROR: Publisher::main(): Usage Error, correct use -> publisher.exe -DCPSConfigFile rtps.ini" << endl;
 		return -1;
 	}
 	cout << "Please enter your username: ";
@@ -33,7 +33,7 @@ int main (int argc, char *argv[]){
 		DDS::DomainParticipant_var participant = dpf->create_participant(TWITTER_DOMAIN_ID, PARTICIPANT_QOS_DEFAULT, 0,OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 
 		if (!participant) {
-			cerr << "ERROR: Publisher: main(): failed to create participant" << endl;
+			cerr << "ERROR: Publisher::main(): failed to create participant" << endl;
 			return -1;
 		}
 
@@ -47,27 +47,27 @@ int main (int argc, char *argv[]){
 		//Create topic associated to the user
 		DDS::Topic_var topic = participant->create_topic(username, TYPE_NAME, TOPIC_QOS_DEFAULT, 0, OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 		if (!topic) {
-			cerr << "ERROR: Publisher: main(): failed to create topic" << endl;
+			cerr << "ERROR: Publisher::main(): failed to create topic" << endl;
 			return -1;
 		}
 
 		// Create Publisher
 		DDS::Publisher_var publisher = participant->create_publisher(PUBLISHER_QOS_DEFAULT, 0, OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 		if (!publisher) {
-			cerr << "ERROR: Publisher: main(): failed to create publisher" << endl;
+			cerr << "ERROR: Publisher::main(): failed to create publisher" << endl;
 			return -1;
 		}
 
 		// Create DataWriter
 		DDS::DataWriter_var writer_base = publisher->create_datawriter(topic, DATAWRITER_QOS_DEFAULT, 0, OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 		if (!writer_base) {
-			cerr << "ERROR: Publisher: main(): failed to create base writer" << endl;
+			cerr << "ERROR: Publisher::main(): failed to create base writer" << endl;
 			return -1;
 		}
 		//narrow to our message type
 		Twitter::TweetDataWriter_var writer = Twitter::TweetDataWriter::_narrow(writer_base);
 		if (!writer) {
-			cerr << "ERROR: Publisher: main(): failed to create writer" << endl;
+			cerr << "ERROR: Publisher::main(): failed to create writer" << endl;
 			return -1;
 		}
 
@@ -89,7 +89,7 @@ int main (int argc, char *argv[]){
 			tweet.text = text.c_str();
 			DDS::ReturnCode_t error = writer->write(tweet, DDS::HANDLE_NIL);
 			if (error != DDS::RETCODE_OK) {
-				cerr << "ERROR: Publisher: main(): Unable to post tweet" << endl;
+				cerr << "ERROR: Publisher::main(): Unable to post tweet" << endl;
 				return -1;
 			}
 		}
@@ -100,7 +100,7 @@ int main (int argc, char *argv[]){
 		TheServiceParticipant->shutdown();
 	}
 	catch (const CORBA::Exception& e) {
-		e._tao_print_exception("Exception caught in main():");
+		e._tao_print_exception("Exception caught in Publisher::main():");
 		return -1;
 	}
 	cout << "Bye!" << endl;
