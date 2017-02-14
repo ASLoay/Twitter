@@ -88,7 +88,7 @@ int main(int argc, char *argv[]) {
 		while (true) {
 			cout << "TO QUIT PRESS X" << endl;
 			getline(cin, end);
-			if (user == "X") {
+			if (end == "X") {
 				break;
 			}
 		}
@@ -96,6 +96,9 @@ int main(int argc, char *argv[]) {
 		participant->delete_contained_entities();
 		dpf->delete_participant(participant);
 		TheServiceParticipant->shutdown();
+		cout << "********************************************************" << endl;
+		cout << "*                     Bye Twitter!                     *" << endl;
+		cout << "********************************************************" << endl;
 	}
 	catch(const CORBA::Exception& e){
 		e._tao_print_exception("Exception caught in Subscriber::main():");

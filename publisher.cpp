@@ -70,7 +70,9 @@ int main (int argc, char *argv[]){
 			cerr << "ERROR: Publisher::main(): failed to create writer" << endl;
 			return -1;
 		}
-
+		cout << "********************************************************" << endl;
+		cout << "*                    Hello Twitter                     *" << endl;
+		cout << "********************************************************" << endl;
 		//Write tweets
 		Twitter::Tweet tweet;
 		tweet.count = 0;
@@ -103,7 +105,9 @@ int main (int argc, char *argv[]){
 		e._tao_print_exception("Exception caught in Publisher::main():");
 		return -1;
 	}
-	cout << "Bye!" << endl;
+	cout << "********************************************************" << endl;
+	cout << "*                     Bye Twitter!                     *" << endl;
+	cout << "********************************************************" << endl;
 	return 0;
 	
 }
